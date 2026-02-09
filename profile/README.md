@@ -27,14 +27,16 @@ result = generate_pulse(gate="CZ", num_qubits=2, duration_ns=80, target_fidelity
 print(f"Fidelity: {result.fidelity:.4f}")  # → 0.9983
 ```
 
-## Current Release: v0.3.0
+## Current Release: v0.4.0
 
-- Multi-qubit GRAPE optimization (n ≤ 5 qubits)
-- Pulse scheduling with constraint system and crosstalk avoidance
-- Parametric gates: fSim (Google), cross-resonance (IBM)
-- Symplectic Clifford tableaux for multi-qubit randomized benchmarking
-- Error budgets with cumulative fidelity prediction
-- 947 tests · 91% coverage · Apache 2.0
+**Active Calibration & GRAPE-in-Rust**
+
+- Real-time drift monitoring with 5 severity levels
+- Async recalibration loop: measure → detect → recalibrate → resume
+- Rust GRAPE optimizer: **10.4x speedup** over Python
+- Provenance Merkle tree records drift events and recalibrations
+- Multi-qubit GRAPE, pulse scheduling, parametric gates, Clifford tableaux
+- 982 Python tests · 233 Rust tests · 92% coverage · Apache 2.0
 
 ---
 
