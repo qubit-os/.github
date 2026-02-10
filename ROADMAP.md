@@ -317,18 +317,18 @@ The [architecture review](ARCHITECTURE-REVIEW.md) identified five structural gap
 
 ### 0.5.1 Additional Backends
 
-- [ ] IBM Quantum backend (Qiskit Runtime integration)
-- [ ] AWS Braket backend
-- [ ] Custom backend SDK: documented trait/interface for third-party backend authors
+- [x] IBM Quantum backend (Qiskit Runtime integration)
+- [x] AWS Braket backend
+- [x] Custom backend SDK: documented trait/interface for third-party backend authors
 - [ ] Common "pulse to native gate" compilation trait with backend-specific implementations
 
 ### 0.5.2 Rust-Native Solver (GAP 3 — Phase 2)
 
-- [ ] Lindblad master equation solver in Rust (core decoherence dynamics)
-- [ ] T1/T2 decoherence models (amplitude damping, phase damping channels)
-- [ ] Hamiltonian exponentiation with decoherence (combined unitary + dissipative evolution)
-- [ ] Validation against QuTiP `mesolve()` results (Hellinger distance < 0.01)
-- [ ] Decoherence-aware GRAPE: optimizer accounts for T1/T2 decay during pulse
+- [x] Lindblad master equation solver in Rust (core decoherence dynamics)
+- [x] T1/T2 decoherence models (amplitude damping, phase damping channels)
+- [x] Hamiltonian exponentiation with decoherence (combined unitary + dissipative evolution)
+- [x] Validation against QuTiP `mesolve()` results (Hellinger distance < 0.01)
+- [x] Decoherence-aware GRAPE: optimizer accounts for T1/T2 decay during pulse
 
 ### v0.5.0 Exit Criteria
 
@@ -530,6 +530,6 @@ See [CONTRIBUTING.md](CONTRIBUTING.md) for contribution guidelines, including:
 
 ---
 
-*Last Updated: February 9, 2026*
+*Last Updated: February 10, 2026*
 
 *References: [ARCHITECTURE-REVIEW.md](ARCHITECTURE-REVIEW.md) for the gap analysis motivating v0.2.0. Design specifications for v0.2.0 sub-phases will be published in the `specs/` directory before implementation begins.*
