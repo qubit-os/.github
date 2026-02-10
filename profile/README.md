@@ -27,16 +27,18 @@ result = generate_pulse(gate="CZ", num_qubits=2, duration_ns=80, target_fidelity
 print(f"Fidelity: {result.fidelity:.4f}")  # → 0.9983
 ```
 
-## Current Release: v0.4.0
+## Current Release: v0.5.0
 
-**Active Calibration & GRAPE-in-Rust**
+**Backends & Rust-Native Solver**
 
+- IBM Quantum and AWS Braket backends with Backend SDK for third-party authors
+- Rust Lindblad master equation solver (matches QuTiP to trace distance < 1e-6)
+- Decoherence-aware GRAPE optimizer (T1/T2 during pulse optimization)
 - Real-time drift monitoring with 5 severity levels
 - Async recalibration loop: measure → detect → recalibrate → resume
 - Rust GRAPE optimizer: **10.4x speedup** over Python
-- Provenance Merkle tree records drift events and recalibrations
 - Multi-qubit GRAPE, pulse scheduling, parametric gates, Clifford tableaux
-- 982 Python tests · 233 Rust tests · 92% coverage · Apache 2.0
+- 1,006 Python tests · 280 Rust tests · 92% coverage · Apache 2.0
 
 ---
 

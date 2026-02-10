@@ -334,30 +334,34 @@ generated code, reduces diff noise), but requires protoc in the build environmen
 
 | Classical Mistake | Quantum Equivalent | QubitOS Status |
 |---|---|---|
-| x86 backwards compat forever | Gate model as permanent abstraction | Good -- pulse-first design |
-| C's "trust the programmer" | "Just submit and hope" cloud model | Good -- validation layer exists |
-| No security at hardware level | No decoherence accounting at compile time | **GAP 1** -- needs time model |
-| Byte streams between layers | Untyped job submission APIs | Good -- typed protos |
-| Files as unstructured bytes | Calibration as static config | Good -- live fingerprinting |
-| No capability-based security | No error budget tracking | **GAP 2** -- needs error budgets |
-| Flat memory, MMU bolted on | Two-language seam, PyO3 bolted on | **GAP 3** -- long-term Rust-native |
-| No content-addressed storage | No experiment reproducibility hash | **GAP 4** -- extend fingerprinting |
-| ISA designed for hand-assembly | API designed for gate-model users | **GAP 5** -- Hamiltonian-first docs |
+| x86 backwards compat forever | Gate model as permanent abstraction | ✅ Good — pulse-first design |
+| C's "trust the programmer" | "Just submit and hope" cloud model | ✅ Good — validation layer exists |
+| No security at hardware level | No decoherence accounting at compile time | ✅ **GAP 1 RESOLVED** — time model (v0.2.0) |
+| Byte streams between layers | Untyped job submission APIs | ✅ Good — typed protos |
+| Files as unstructured bytes | Calibration as static config | ✅ Good — live fingerprinting + active calibration (v0.4.0) |
+| No capability-based security | No error budget tracking | ✅ **GAP 2 RESOLVED** — error budgets (v0.2.0) |
+| Flat memory, MMU bolted on | Two-language seam, PyO3 bolted on | ✅ **GAP 3 RESOLVED** — Rust GRAPE (v0.4.0) + Rust Lindblad (v0.5.0) |
+| No content-addressed storage | No experiment reproducibility hash | ✅ **GAP 4 RESOLVED** — Merkle tree (v0.2.0) |
+| ISA designed for hand-assembly | API designed for gate-model users | ✅ **GAP 5 RESOLVED** — TargetUnitary rename (v0.2.0) |
 
 ---
 
 ## Summary: Priority Order for Next Work
 
-| Priority | Gap | Effort | Impact |
-|----------|-----|--------|--------|
-| 1 | Time model & temporal constraints | Medium | Prevents a class of silent failures |
-| 2 | Error budget tracking | Medium | Enables sequence-level reasoning |
-| 3 | State Merkle tree | Small | Reproducibility & debugging |
-| 4 | GRAPE in Rust (start) | Large | Performance, type safety |
-| 5 | GateType as library, not primitive | Small | Philosophical, but sets culture |
+All five architectural gaps identified in this review have been resolved:
+
+| Priority | Gap | Status | Resolved In |
+|----------|-----|--------|-------------|
+| 1 | Time model & temporal constraints | ✅ Complete | v0.2.0 |
+| 2 | Error budget tracking | ✅ Complete | v0.2.0 |
+| 3 | State Merkle tree | ✅ Complete | v0.2.0 |
+| 4 | GRAPE in Rust + Lindblad in Rust | ✅ Complete | v0.4.0 + v0.5.0 |
+| 5 | GateType as library, not primitive | ✅ Complete | v0.2.0 (TargetUnitary) |
+
+**Next milestone: v1.0.0** — Stable API, full Rust-native production path, external security audit, community governance.
 
 ---
 
-*This document should be reviewed alongside QubitOS-Design-v0.5.0.md and the ROADMAP.
-It represents an external architectural perspective, not a mandate. The existing
-architecture is sound; these are the next layers of depth.*
+*This document was written at v0.1.0 and should be read alongside QubitOS-Design-v0.5.0.md
+and the ROADMAP. All five gaps have been addressed as of v0.5.0. The existing architecture
+is sound and has scaled from single-qubit to multi-qubit with multiple hardware backends.*
