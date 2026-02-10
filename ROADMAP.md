@@ -98,7 +98,7 @@ The [architecture review](ARCHITECTURE-REVIEW.md) identified five structural gap
 - [x] `DecoherenceBudget` tracking cumulative T1/T2 consumption across a pulse sequence
 - [x] AWG clock alignment: pulse durations quantized to AWG sample period (integer multiples)
 - [x] Proto extensions: `TimePoint`, `TemporalConstraint`, `PulseSequence`, and `DecoherenceBudget` messages in `quantum.pulse.v1`
-- [ ] Rust-side temporal constraint validation in HAL server (reject invalid sequences before execution)
+- [x] Rust-side temporal constraint validation in HAL server (reject invalid sequences before execution)
 - [x] Python `PulseSequence` builder with decoherence budget warnings at construction time
 - [x] Fix `duration_ns` type mismatch: proto defines `int32`, Python uses `float` — unify via `TimePoint`
 - [x] Integration tests: constraint violation detection, AWG alignment enforcement, decoherence budget warnings, round-trip proto serialization
@@ -147,8 +147,8 @@ The [architecture review](ARCHITECTURE-REVIEW.md) identified five structural gap
 - [x] Deprecation alias: `GateType = TargetUnitary` with `DeprecationWarning` in Python, maintained for one release cycle (removed in v0.3.0)
 - [x] Sync enum values: add `S`, `T`, `SQISWAP`, `SWAP`, `CX` to Python `TargetUnitary` to match proto definition
 - [x] Restructure documentation: Hamiltonian/pulse examples are the primary path, gate convenience is secondary
-- [ ] Update quickstart guide: lead with `HamiltonianSpec` + Pauli string, show `TargetUnitary` as shortcut
-- [ ] Update all 3 tutorial notebooks to use Hamiltonian-first examples
+- [x] Update quickstart guide: lead with `HamiltonianSpec` + Pauli string, show `TargetUnitary` as shortcut
+- [x] Update all 3 tutorial notebooks to use Hamiltonian-first examples
 - [x] Reconcile duplicate v0.5.0 design docs (root copy vs `core/docs/specs/` copy) — single source of truth
 - [x] Reconcile generated code policy (committed vs build-time) — document the decision
 
@@ -242,8 +242,8 @@ The [architecture review](ARCHITECTURE-REVIEW.md) identified five structural gap
 - [x] 3+ qubit Hamiltonian construction and validation (tensor products, interaction terms)
 - [x] Multi-qubit GRAPE optimization (joint pulse sequences for entangling operations)
 - [x] Performance profiling for n=3, 4, 5 qubits (Hilbert space scales as 2^n)
-- [ ] Memory management strategy for large state vectors and propagators
-- [ ] Sparse matrix support in optimizer hot path
+- [x] Memory management strategy for large state vectors and propagators
+- [x] Sparse matrix support in optimizer hot path
 
 ### 0.3.2 Pulse Scheduling
 
@@ -320,7 +320,7 @@ The [architecture review](ARCHITECTURE-REVIEW.md) identified five structural gap
 - [x] IBM Quantum backend (Qiskit Runtime integration)
 - [x] AWS Braket backend
 - [x] Custom backend SDK: documented trait/interface for third-party backend authors
-- [ ] Common "pulse to native gate" compilation trait with backend-specific implementations
+- [x] Common "pulse to native gate" compilation trait with backend-specific implementations
 
 ### 0.5.2 Rust-Native Solver (GAP 3 — Phase 2)
 
